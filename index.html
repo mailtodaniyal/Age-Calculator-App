@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>form{
+        display: grid;
+        border: none;
+        width: 450px;
+        margin-left: 400px;
+        text-align: center;
+        margin-top: 30px;
+        background-color: rgba(172, 255, 47, 0.295);
+        border-radius: 25px;
+        box-shadow: 3px 3px 27px 9px yellowgreen;
+    }
+    input{
+        padding: 4px;
+        margin: 4px;
+        border-radius: 5px;
+        background-color: rgba(3, 148, 148, 0.185);
+        border: none;
+    }
+    button{
+        width: 100px;
+        margin-left: 180px;
+        margin-top: 5px;
+    }
+    h1{
+        color: darkblue;
+    }
+    button{
+        background-color: blue;
+        color: white;
+        padding: 3px;
+        border: none;
+        border-radius: 5px;
+    }</style>
+</head>
+<body>
+    <form>
+        <h1>Age Calculator App</h1>
+        <label for="name">Enter Name
+            <input type="text" placeholder="Enter your Name" id="name">
+        </label>
+        <label for="dob"> Enter Date of Birth
+            <input type="date" name="dob" id="dob">
+        </label>
+        <button type="button" onclick="calculate()">Calculate</button>
+        <p id="result"></p>
+    </form>
+
+    <script>
+        function calculate() {
+    var name = document.getElementById("name").value;
+    var dobinput = document.getElementById("dob");
+
+    var dob = new Date (dobinput.value);
+    var today = new Date();
+
+    var age = dob.getFullYear() - today.getFullYear();
+    if (today.getMonth() < dob.getMonth() || today.getMonth() === today.getMonth() && today.getFullYear < dob.getFullYear()) {
+        age++;
+    }
+
+    document.getElementById("result").innerHTML = "Name : " + name + "<br>Age " + age;
+}
+    </script>
+</body>
+</html>
